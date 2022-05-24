@@ -12,7 +12,7 @@ HTML, CSS, Javascript
 Login
 
 Pagina de login com email e senha. Validações criadas para que email inexistente vá para a pagina de cadastro, e validação de usuário e senha.
-![Print login] (https://github.com/kelly-guedes/avaliacaoFrontend1/blob/master/prints/print-index.jpg)
+![Print Login](https://github.com/kelly-guedes/avaliacaoFrontend1/blob/master/prints/print-index.jpg)
 
 Criar conta
 
@@ -24,4 +24,4 @@ Sistema de recados
 
 Nele é possível adicionar recados, apagar e editar os respectivos recados para tornar o sistema dinâmico.
 
-![Print Sistema de recados] (https://github.com/kelly-guedes/avaliacaoFrontend1/blob/master/prints/print-recados.jpg)
+![Print Sistema de Recados](https://github.com/kelly-guedes/avaliacaoFrontend1/blob/master/prints/print-recados.jpg)
