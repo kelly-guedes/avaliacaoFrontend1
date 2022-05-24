@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 18px;
+  background-image: url("./images/pexels-henry-&-co-1939485.jpg");
+  background-size: cover;
+  background-position: top;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.divEsquerda {
+  background-image: url("./images/to_do_list7.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 75%;
+  flex: 0.5;
+  margin: 15px;
+  border-radius: 30px;
+}
+
+.divDireita {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center, left;
+  flex: 0.5;
+  height: 60%;
+}
+
+#fieldset {
+  width: 70%;
+  padding: 100px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #252121;
+}
+
+#formCadastro {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.inputs {
+  display: flex;
+  border-radius: 10px;
+  width: 100%;
+  height: 30px;
+  padding: 15px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+#entrar:focus,
+#criarConta:focus,
+#salvarUsuario:focus {
+  outline: none;
+}
+
+label {
+  display: flex;
+  flex: column;
+  font-size: 12px;
+  text-align: left;
+  align-items: left;
+  margin-left: 0;
+  align-items: left;
+  margin-left: 12px;
+  margin-top: 12px;
+  color: #705a5a;
+}
+
+#sairSistema {
+  border-radius: 5px;
+  height: 50px;
+  width: 5%;
+  background-color: #705a5a;
+  color: #252121;
+  border: none;
+  cursor: pointer;
+  margin-left: 0;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+#entrar,
+#criarConta,
+#salvarUsuario {
+  border-radius: 50px;
+  margin: 8px;
+  height: 35px;
+  width: 100%;
+  color: #252121;
+  border: none;
+  background-color: #705a5a;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#fieldset2 {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  text-align: center;
+  padding: 10%;
+  margin-left: 25%;
+  margin-top: 30px;
+}
+
+.divMeusRecados {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px;
+}
+
+table {
+  padding: 30px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+table,
+th,
+td {
+  border: 1px solid #e0aeae;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+table th {
+  color: #252121;
+  background-color: #705a5a;
+}
+
+tbody th {
+  opacity: 0.8;
+}
+
+#lembrete {
+  width: 30%;
+  height: 40px;
+}
+#detalhamento {
+  width: 60%;
+  height: 40px;
+}
+
+#inputCadastrar {
+  width: 8%;
+  height: 40px;
+}
+
+#th1 {
+  width: 8%;
+}
+
+#th2 {
+  width: 20%;
+}
+#th4 {
+  width: 15%;
+}
+
+#inputCadastrar {
+  background-color: #705a5a;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-family: "Courier New", Courier, monospace;
+}
+.imgs {
+  width: 25px;
+}
+
+#msgError {
+  text-align: start center;
+  flex-direction: column;
+  color: #ff0000;
+  background-color: #ffbbbb;
+  padding: 10px;
+  border-radius: 4px;
+  display: none;
+}
+#msgSuccess {
+  text-align: start center;
+  color: #00bb00;
+  background-color: #bbffbe;
+  padding: 10px;
+  border-radius: 4px;
+  display: none;
+}
