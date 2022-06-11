@@ -1,25 +1,34 @@
+const form = document.querySelector("#infos_recados");
+const corpoRecados = document.querySelector("#tbody");
+
 const userLogado = JSON.parse(localStorage.getItem("userLogado") || "[]");
 
 let deveEditar = false;
 let indiceEdicao = 0;
 
-const form = document.querySelector("#infos_recados");
-const corpoRecados = document.querySelector("#tbody");
+if (!localStorage.getItem("userLogado")) {
+  alert("Você precisa estar logado para acessar esta página");
+  document.location.href = "./index.html";
+}
+
 const recuperarLocalStorage = () => {
-  const recados = JSON.parse(localStorage.getItem(userLogado.user) || "[]");
+  const recados = JSON.parse(localStorage.getItem(userLogado.emailCad) || "[]");
   return recados;
 };
 
 const salvarLembrete = (event) => {
   event.preventDefault();
+
   const lembrete = form.lembrete.value;
   const detalhamento = form.detalhamento.value;
+
   const recados = recuperarLocalStorage();
-  if (deveEditar === true) {
-    alert("Editando recado");
+
+  if (deveEditar) {
     recados[indiceEdicao].lembrete = lembrete;
     recados[indiceEdicao].detalhamento = detalhamento;
     deveEditar = false;
+    alert("Recado editado com sucesso!");
   } else {
     recados.push({
       id: definirID(),
@@ -29,15 +38,20 @@ const salvarLembrete = (event) => {
 
     alert("Lembrete adicionado com sucesso!");
   }
-  localStorage.setItem(userLogado.user, JSON.stringify(recados));
+
+  localStorage.setItem(userLogado.emailCad, JSON.stringify(recados));
+
   form.lembrete.value = "";
   form.detalhamento.value = "";
+
   preencherTabela();
 };
 
 const preencherTabela = () => {
   const recados = recuperarLocalStorage();
+
   corpoRecados.innerHTML = "";
+
   for (const recado of recados) {
     corpoRecados.innerHTML += `
 <tr>
@@ -62,16 +76,20 @@ const apagarRecado = (id) => {
   });
 
   recados.splice(indice, 1);
-  localStorage.setItem(userLogado.user, JSON.stringify(recados));
+  localStorage.setItem(userLogado.emailCad, JSON.stringify(recados));
   preencherTabela();
 };
 
 const editarRecado = (id) => {
   const recados = recuperarLocalStorage();
+
   const indice = recados.findIndex((rec) => rec.id === id);
+
   const recado = recados[indice];
+
   form.lembrete.value = recado.lembrete;
   form.detalhamento.value = recado.detalhamento;
+
   deveEditar = true;
   indiceEdicao = indice;
 };
@@ -84,11 +102,6 @@ const definirID = () => {
   });
   return max + 1;
 };
-
-if (localStorage.getItem("userLogado") == null) {
-  alert("Você precisa estar logado para acessar esta página");
-  document.location.href = "./index.html";
-}
 
 function sairSistema() {
   localStorage.removeItem("userLogado");

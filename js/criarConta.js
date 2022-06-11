@@ -1,22 +1,20 @@
-let formCadastro = document.querySelector("#formCadastro");
+const formCadastro = document.querySelector("#formCadastro");
 
-let inputSalvarUsuario = document.querySelector("#salvarUsuario");
-let emailUser = document.querySelector("#emailUser");
-let labelEmailUser = document.querySelector("#labelEmailUser");
+// let inputSalvarUsuario = document.querySelector("#salvarUsuario");
+const emailUser = document.querySelector("#emailUser");
+const labelEmailUser = document.querySelector("#labelEmailUser");
 let validEmail = false;
 
-let passwordUser = document.querySelector("#passwordUser");
-let labelPasswordUser = document.querySelector("#labelPasswordUser");
+const passwordUser = document.querySelector("#passwordUser");
+const labelPasswordUser = document.querySelector("#labelPasswordUser");
 let validPassword = false;
 
-let confirmPassword = document.querySelector("#confirmPassword");
-let labelConfirmPassword = document.querySelector("#labelConfirmPassword");
+const confirmPassword = document.querySelector("#confirmPassword");
+const labelConfirmPassword = document.querySelector("#labelConfirmPassword");
 let validConfirmPassword = false;
 
-let msgError = document.querySelector("#msgError");
-let msgSuccess = document.querySelector("#msgSuccess");
-
-formCadastro.addEventListener("submit", cadastrado);
+const msgError = document.querySelector("#msgError");
+const msgSuccess = document.querySelector("#msgSuccess");
 
 emailUser.addEventListener("keyup", () => {
   if (emailUser.value.length <= 5) {
@@ -63,7 +61,8 @@ confirmPassword.addEventListener("keyup", () => {
 
 function cadastrado(e) {
   e.preventDefault();
-  let listaUser = JSON.parse(localStorage.getItem("listaUser") || "[]");
+  const listaUser = JSON.parse(localStorage.getItem("listaUser") || "[]");
+
   const userExistente = listaUser.some(
     (user) => emailUser.value === user.emailCad
   );
@@ -77,8 +76,6 @@ function cadastrado(e) {
   }
 
   if (validEmail && validPassword && validConfirmPassword) {
-    let listaUser = JSON.parse(localStorage.getItem("listaUser") || "[]");
-
     listaUser.push({
       emailCad: emailUser.value,
       passwordCad: passwordUser.value,
@@ -93,7 +90,7 @@ function cadastrado(e) {
 
     setTimeout(() => {
       document.location.href = "./index.html";
-    }, 3000);
+    }, 1300);
   } else {
     msgError.setAttribute("style", "display: block");
     msgError.innerHTML =
@@ -102,3 +99,5 @@ function cadastrado(e) {
     msgSuccess.setAttribute("style", "display: none");
   }
 }
+
+formCadastro.addEventListener("submit", cadastrado);
